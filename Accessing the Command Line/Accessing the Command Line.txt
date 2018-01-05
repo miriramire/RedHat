@@ -1,0 +1,22 @@
+$ means that you are logged in as a normal user.
+# means that you are logged in as the administrative user(root).
+ls -l /boot  (ls{command} -l{option} /boot{argument})
+  listening
+  -l tells us how we want to execute the command.
+
+Options come in two formats:
+- shortest (-l): -l stands for long. And to indicate that we are using the abbreviated form of the option, we use a single dash (-) Now, when you make use of the double dash (--), you are telling the Linux command line that it is not to interpret every single letter in the word as an individual option.
+- longest (--all): the shortest of this option is -a, but you must not use -all, because it interprets every letter, in this way: -a (all), -l (long listening) and -l (long listening) that is redundant.
+
+CTRL + L cleans the terminal
+CTRL + D closes the terminal
+CTRL + V means exit or logout; it means the same thing.
+SSH (ip or url) you can login to a remote shell. Example:
+  ssh servera.lab.example.com
+  
+  You can create a private and public key in this way:
+    ls .ssh
+    ssh-keygen
+    Enter the private key (rsa): ******
+    secure with passphrase? (if yes type the key/if no press enter)
+    ssh-copy-id servera.lab.example.com (Copy the key created)
