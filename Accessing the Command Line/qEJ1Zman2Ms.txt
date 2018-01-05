@@ -1,0 +1,194 @@
+So, we are going to look at accessing the command line right now.
+This chapter is really important because this is where we learn
+how you will issue commands to your system.
+How you tell your system what to do.
+So to access the command line we need a terminal emulator program.
+To access your terminal emulator, we click on Applications,
+we go down to Favorites and here we have a Terminal program over there.
+Click on that and it will open up a terminal for you.
+I already have one opened, so I am just going to close it over there
+and I am going to talk to you about a couple of facts.
+First of all, your prompt is really important.
+ The prompt is used to identify who you are logged on as.
+So if you see a dollar ($),
+it typically means that you are logged in as a normal user.
+And if you see pound symbol or hash symbol (#),
+it means that you are logged in as the administrative user.
+And in Linux, the administrative user is called root.
+Now why this is important is because when you look at the Linux documentation
+on the internet or in other forms of literature,
+you may see that the command is prefixed by a $ symbol
+and that means that that command is to be executed as a normal user.
+And if it is prefixed with a # symbol or a Pound symbol,
+it means that command is to be executed as root.
+So what I am going to do right now is that I am going to exit out of my document
+and I am going to show you we have the command line opened up right now.
+So I am indeed logged in as the user student
+at my system and this is the short name of my system.
+It's called workstation.
+This is an indicator to my current location.
+So I am currently located in my home directory
+so that tilde (~) key, the ~ key that you would typically find next to number 1
+on the keyboard that is an indicator that you are logged in as your home directory.
+It's the shortcut that represents
+the currently logged on user’s home directory.
+And what we were just talking about right now, that $,
+that is the visual indicator that I am logged in as a normal user.
+And from here, I can go and execute commands.
+Like I can go and run the ls command; I can go and run the hostname command;
+ I can go and run the date command as well.
+Now, a few things about the command line basics
+is that when you execute a command, it typically follows the notation
+the command, the option and then the argument.
+Now sometimes these things may be completely optional.
+So I am going to show you what the output of this command over here.
+ls -l /boot
+So the command is ls.
+We are running a directory listing right now.
+-l tells us how we want to execute the command.
+Remember, the command is ls and then the argument is /boot.
+So we are conducting the transaction against the directory called /boot.
+So as you can see over here, we have the command,
+we have the option, and we have the argument.
+So options come in two formats.
+We have the shortened version of the option
+and we also have the longer form of the option.
+Now what you are looking at over here, this is the shortened form of the option;
+it's an abbreviated letter.
+So -l stands for long.
+ And to indicate that we are using the abbreviated form of the option,
+we use a single dash (-) Now, when you make use of the double dash (--),
+you are telling the Linux command line that it is not to interpret
+every single letter in the word as an individual option.
+Let me show you this.
+I am going to do ls -a/boot once again.
+So you can clearly quite see over there
+ that I am using the shortened form of the option.
+And the a option is the abbreviation for all.
+So I am looking all files and directories in the directory boot.
+Now check this out; I am going to say ls -all
+Now it looks like “all,”
+ but I am not using the abbreviated form of that particular command.
+What I am telling the Linux shell right now is that every single letter
+in the word all is to be interpreted as its own option.
+In other words, it's to interpret the “a” as one option
+and “l” as another option and that second “l” over there as yet another option.
+And look at the output right now.
+It's not the same output.
+So what I am actually doing over there is saying that ls -a for all,
+ -l for long listing, and then I am using the -l again, which is redundant.
+And we are doing this again for the boot directory.
+Now, let me show you the longer format of that.
+I am going to say ls –all.
+So what I am telling the Linux kernel to do is that it must not interpret
+every single letter in that word as a separate option.
+Now, if you are wondering how I am clearing my screen right now,
+I am just using Ctrl+L and that means to clear the screen.
+If you want to disconnect from your terminal,
+if you want to close your terminal,
+you could either type in exit or you can use Ctrl+D.
+So right now what I want to do is head back to the terminal.
+So, I am going to go to > Applications > Favorites
+and we are going to open the terminal program once again.
+And we are going to login to our remote system right now.
+I have got another system that I have set up called servera.
+So to login to a remote system, I am going to use ssh.
+ssh stands for secure shell.
+I am going to open a secure shell to a remote system
+and I am simply going to type in servera.lab.example.com.
+You can see that because this is the first time that I am connecting to the system;
+it is telling me that we can verify that this is indeed the machine
+that you want to communicate with.
+We can't really identify that this is servera.lab.example.com.
+It tells me what the key fingerprint is of the remote system
+and it asks me whether I want to continue connecting.
+Whether I want to trust that it is indeed servera.
+So I am going to say yes.
+It now prompts me for the servera's password.
+So, I'll type in my password
+and this is the password for the student user.
+So what you can see over here is that I am logged in as student
+@servera and that I am a normal user.
+So let's disconnect from that remote shell.
+So, I am going to use a Ctrl+V.
+So, Ctrl+V always means exit or logout; it means the same thing.
+Now, if you want to connect as a completely separate user
+to the remote system, you could say, ssh specify that username
+and then use an @ sign and you can specify the remote system’s name.
+So in this case, the @ sign is the separator
+between the username and the computer name.
+And now I have to type in root's password.
+And what I would like to show you right now
+is that I am indeed logged in as a root at servera.
+But, this time, you can see that we have that # symbol
+and that # symbol is the visual indicator
+ that you are indeed logged in as the root user.
+So I want to show you guys something really cool right now.
+I am going to disconnect from servera
+and I will return to my workstation machine
+where I am logged in as the student user.
+So on many systems and for tighter security purposes,
+we avoid using passwords.
+So I am going to show you
+how to set up ssh public and the private key authentication
+so that I can login to the remote system,
+ I can log into servera without having to type in a password.
+And instead, I am going to use another means of identification.
+That means of identification would be my private key.
+So, the whole idea around this is that we are going to generate  two keys;
+one is a private key and as the name suggests, you keep that private.
+And we are going to generate a public key and again this public key is sharable,
+ you can install it another system,
+you can share it with other systems in the network as well.
+So, we are going to take the public key
+and we are going to store it onto servera and then whenever I try to login
+as the user student @servera, I will instead authenticate using my private key.
+That is going to be the means of identification
+ that I am going to make use of.
+So first up, I want to show you
+where your public and private keys are typically stored,
+and it is in a directory called .ssh.
+This directory is hidden and you can see that I don't have any files over here
+that indicate to me that these are public and private keys.
+So to generate the key, the simplest way to do so would be to say ssh-keygen.
+And you can see that we have the default locations indicated in brackets.
+It says, all right, enter the file in which to save the key.
+This is your private key.
+So the private key is called id_rsa.
+So let's go and accept the defaults.
+Do you want to secure your private key with a passphrase?
+No, I am not going to do that right now, we’re going to keep it simple.
+And you can see that it tells me that my identification has been saved
+in a file called id_rsa and again that is my private key.
+Then I have my public key, which is that id_rsa.pub
+and that is the file that we’re going to allocate to servera.
+That is the file that we are going to copy over to servera.
+So let me show you the before picture.
+I am going to login right now as
+ the user student@servera.lab.example.com
+and it prompts me for a password.
+That is the before picture.
+So allow me to disconnect from servera.
+And now what I am going to do is that I am going to copy the public portion
+of my ssh public and private key pair.
+I am going to copy the public portion
+over to servera.lab.example.com.
+Now, of course, in order to do so, I need to prove that I am indeed the student,
+so I am going to type in student’s password and there we go.
+So it says that the number of keys that we were added were 1
+and it suggests that we should not try logging into the machine
+with the command “ssh ‘servera.lab.example.com’"
+So let’s go and try that out right now.
+And here is your after picture.
+Now, you may think that I didn't authenticate
+because it didn't prompted me for my password.
+This is actually way more secure.
+My password didn't traverse the network and because I am in possession,
+ I am in physical possession of that private key,
+that is how I prove my identity.
+And once again, I am going to disconnect from servera
+ and I am going to show you the contents of that .ssh directory.
+So what you can see over here is that that file over there is my private key.
+The public key ends in .pub and these are the files that I need.
+I at least need the private key in order to authenticate
+ to the remote system where my public key is installed.
