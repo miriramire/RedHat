@@ -1,0 +1,17 @@
+In Linux, the most common way to get a shell prompt on a remote system is to use Secure Shell (SSH). Most Linux systems (including Red Hat Enterprise Linux) and macOS provide the OpenSSH command line program ssh for this purpose.
+This is an example of a user with a shell prompt on the machine host using ssh to log in to the remote Linux system remotehost as the user remoteuser:
+
+[student@host ~]$ ssh remoteuser@remotehost
+remoteuser@remotehost's password: 
+[remoteuser@remotehost ~]$
+
+The connection is encrypted to secure the communication against eavesdropping or hijacking of the passwords and content being communicated.
+
+Public key authentication:
+With this authentication method, the user has a special identity file containing a private key that's equivalent to a password, and which they keep secret. Their account on the server is configured with a matching public key which doesn't have to be secret. When logging in, the user can have ssh provide the private key and if their matching public key is installed in that account on that remote server, it will log them in without asking for a password.
+In the next example, a user with a shell prompt on the machine host will log into remotehost as remoteuser using ssh with public key authentication. The -i option is used to specify the user's private key file, which is mylab.pem. The matching public key is already set up as an authorized key in the remoteuser account.
+
+[student@host ~]$ ssh -i mylab.pem remoteuser@remotehost
+[remoteuser@remotehost ~]$
+
+In order for this to work, the private key file must be readable only by the user that owns the file. In the preceding example, where the private key is in the mylab.pem file, the command chmod 600 mylab.pem could be used to ensure this. 
