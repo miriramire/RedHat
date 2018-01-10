@@ -1,0 +1,136 @@
+Hey guys, welcome to the next lesson.
+Here we are going to have a look at executing commands using the Bash shell.
+Let’s have a look at my screen right now.
+First of all, you need to know your prompt...
+and this tells you whether you are logged in as a normal user...
+or whether you’re logged in as an administrative user.
+ Let’s have a look.
+So, in this tab session,
+I’m logged in as the Linux user root, which is the administrative user.
+And you can see over here that I have that hash sign (#)...
+and this is my visual indicator that I’m logged in as a root user.
+Moving on to the next tab,
+I’m logged in as a normal user.
+And I want you to see how the terminal prompt changes.
+All of a sudden you can see a dollar sign ($),,
+and this is useful when you’re going through Linux literature,
+because very often,
+it will tell us with a hash or with a pound...
+pretty much the same thing, right...
+or with the dollar sign...
+whether the command is to be executed as a administrative user,
+or as a non-administrative user.
+Speaking of executing commands,
+commands may be executed in a number of ways.
+You could specify the command on its own,
+for example ls,
+and sometimes commands can be used with options.
+So options determine...
+how the command gets executed.
+Whenever the options are specified in square brackets ([ ]) like that,
+that is your visual indicator that...
+the use of the option is optional.
+So any options that are outside of the square brackets are not optional,
+they are mandatory.
+And as per the Linux literature,
+whenever you see an ellipses (…) following an option,
+it means that you’re allowed to make use of multiple options.
+Let’s have a look.
+So given the command ls, I can run the ls command on its own.
+I can also make use of the ls command with an option.
+Am I limited to making use of the ls command with only one option?
+Or am I allowed to make use of many options?
+So I could say that ls -ld
+/var/lib for example,
+and you can see that the option changes how the command gets executed.
+Another way in which you can make use of commands is to specify an argument,
+and again I have an argument that is listed in square brackets over there...
+so that is your visual indicator that the use of the argument is optional;
+it’s not mandatory.
+And you can see that we have an ellipses...
+outside of the arguments block...
+and that means that you are allowed to make use of multiple arguments.
+Let’s have a look at that.
+So I’m going to run the ls -ldZ command...
+against the /var/lib directory as well as against /boot.
+So what you can see over here is that the first part is my command itself;
+I have three options that I have specified,
+and then I have two arguments.
+Now, the same command would work...
+without the options and without the arguments that are passed.
+I’m a firm believer in working smarter and not harder.
+So let’s have a look at some of these more basic concepts.
+Making use of the Up Arrow, that will simply recall the previous command.
+Let’s have a look.
+Up Arrow, there we go, nice and easy.
+Now what you could also do is make use of something called Tab Completion,
+which will complete the command for you given sufficient uniqueness.
+Let’s have a look at that in more detail.
+So, I’m going to type lsm,
+I’m going to hit Tab, nothing happens.
+And that is because I have not specified sufficient uniqueness.
+And this is your cue...
+that you have a lot of commands that begin with lsm.
+So I'm just going to hit Tab once again.
+So the Bash shell is telling me right now...
+that I have a number of commands that begin with lsm;
+those are lsmcli, lsmd, lsmod
+So, if you wanted to type out the command lsmcli,
+I need to specify one more unique character like that.
+Following Tab and, it will complete it to lsmcli.
+If you want to display all the commands from your command history,
+you can simply type out history.
+Let’s have a look at that.
+So you can see that the previous command...
+that I had executed was the history command,
+before that was lsmcli.
+So if you want to recall a particular command from your history,
+you could say bang (!)
+and then the number that corresponds in your history.
+So for example, if I wanted to recall command number 4,
+I could say !4.
+Another neat tip that I have for you is that...
+if you simply wanted to execute the previous command,
+you could say bang bang (!!)
+and then it will recall the previous command...
+as per your history.
+Another neat trick is to recall an argument...
+that was passed to the previous command.
+So, having to look at my history,
+you can see that I have the command previously executed.
+Let’s have a look at command number 3,
+that is ls -ld against the /var/lib directory,
+so I could say !3 Enter.
+And say I wanted to change to that directory,
+ I could say cd, that’s the new command.
+And if you only wanted to recall the argument,
+you would use a !$
+and there you go.
+And it’s all about working smarter.
+Another way in which you could have recalled your...
+arguments is by saying Alt+ dot (.)
+So what I could do over here is use the command...
+ ls –ldh Alt+.
+and we’re recalling the command history over there.
+So that is the /var/lib directory,
+hitting Alt+. once again.
+We’ll continue to filter...
+through all the arguments as per your command history.
+Finally, we have Ctrl+ r.
+So as per your Linux documentation,
+as you can see over here is that whenever we have a reference to a carat symbol (^),
+that means the Ctrl key is to be used on your keyboard.
+So what the Ctrl+r instruction does...
+is that it is our indicator that we can search through the command history.
+Let’s have a look at that right now.
+So somewhere in my command history,
+I previously executed the lsmcli command,
+and if I wanted to recall that command,
+I can use Ctrl+ r
+and I could refer to any part of the command as per the history.
+So I’m going to use cli
+And there’s only one command in my command history...
+that features the characters cli and that is the lsmcli command.
+If I do want to execute that command, I simply hit Enter.
+If that is not the command I wanted to execute,
+I can continue my search by using Ctrl+r.
