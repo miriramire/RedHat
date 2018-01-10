@@ -1,1 +1,28 @@
-.
+Command:
+
+Example: ls
+command [Options]...
+Example: ls -l
+command [Options]... [Arguments]...
+Example: ls -ld /boot
+
+Working smarter, not harder..
+---------------------------------------
+Up Arrow: Recall the previous command
+<tab>: COmplete a command
+history: display the commands from your command history
+!!: execute the previous command
+$!: recall the argument passed to the previous command
+ctrl+r: search your command history
+alt: fliter through the arguments which you've previously passed
+---------------------------------------
+
+Practice:
+$ ls -ld /var/lib
+drwxr-xr-x. 28 root root 4096 Jan 10 15:32 /var/lib
+$ ls -ldZ /var/lib /boot
+dr-xr-xr-x. root root system_u:object_r:boot_t:s0      /boot
+drwxr-xr-x. root root system_u:object_r:var_lib_t:s0   /var/lib
+
+Explain:
+$ls[Options] -ldZ /var/lib /boot[Arguments]
