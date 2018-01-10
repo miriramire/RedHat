@@ -1,0 +1,12 @@
+When a shell is used interactively, it displays a string when it is waiting for a command from the user. This is called the shell prompt. When a regular user starts a shell, the default prompt ends with a $ character.
+The $ is replaced by a # if the shell is running as the superuser, root. This makes it more obvious that it is a superuser shell, which helps to avoid accidents and mistakes which can affect the whole system.
+Using bash to execute commands can be powerful. The bash shell provides a scripting language that can support automation of tasks. The shell has additional capabilities that can simplify or make possible operations that are hard to accomplish efficiently with graphical tools.
+
+Shell Basics:
+Commands entered at the shell prompt have three basic parts:
+ - Command to run
+ - Options to adjust the behavior of the command
+ - Arguments, which are typically targets of the command
+ 
+Options normally start with one or two dashes (-a or --all, for example) to distinguish them from arguments. Commands may also be followed by one or more arguments, which often indicate a target that the command should operate upon.
+For example, the command line usermod -L morgan has a command (usermod), an option (-L), and an argument (morgan). The effect of this command is to lock the password on user morgan's account.
