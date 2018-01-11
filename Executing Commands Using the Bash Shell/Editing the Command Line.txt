@@ -1,0 +1,12 @@
+When used interactively, bash has a command line-editing feature. This allows the user to use text editor commands to move around within and modify the current command being typed. Using the arrow keys to move within the current command and to step through the command history was introduced earlier in this session. More powerful editing commands are introduced in the following table.
+
+Useful Command Line Editing Shortcuts
+
+Shortcut	Description
+Ctrl+a	Jump to the beginning of the command line.
+Ctrl+e	Jump to the end of the command line.
+Ctrl+u	Clear from the cursor to the beginning of the command line.
+Ctrl+k	Clear from the cursor to the end of the command line.
+Ctrl+Left Arrow	Jump to the beginning of the previous word on the command line.
+Ctrl+Right Arrow	Jump to the end of the next word on the command line.
+Ctrl+r	Search the history list of commands for a pattern.
