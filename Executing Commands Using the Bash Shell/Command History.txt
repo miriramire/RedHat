@@ -1,0 +1,25 @@
+The history command displays a list of previously executed commands prefixed with a command number.
+The exclamation point character, !, is a metacharacter that is used to expand previous commands without having to retype them. !number expands to the command matching the number specified. !string expands to the most recent command that begins with the string specified.
+[student@desktopX ~]$ history
+...Output omitted...
+   23  clear
+   24  who
+   25  pwd
+   26  ls /etc
+   27  uptime
+   28  ls -l
+   29  date
+   30  history
+[student@desktopX ~]$ !ls
+ls -l
+total 0
+drwxr-xr-x. 2 student student 6 Mar 29 21:16 Desktop
+...Output omitted...
+[student@desktopX ~]$ !26
+ls /etc
+abrt                     hosts                     pulse
+adjtime                  hosts.allow               purple
+aliases                  hosts.deny                qemu-ga
+...Output omitted...
+
+The Esc+. key combination causes the shell to copy the last word of the previous command on the current command line where the cursor is. If used repeatedly, it will continue to go through earlier commands.
