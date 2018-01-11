@@ -1,0 +1,54 @@
+The date command is used to display the current date and time. It can also be used by the superuser to set the system clock. An argument that begins with a plus sign (+) specifies a format string for the date command.
+[student@desktopX ~]$ date
+Sat Apr  5 08:13:50 PDT 2014
+[student@desktopX ~]$ date +%R
+08:13
+[student@desktopX ~]$ date +%x
+04/05/2014
+
+The passwd command changes a user's own password. The original password for the account must be specified before a change will be allowed. By default, passwd is configured to require a strong password, consisting of lowercase letters, uppercase letters, numbers, and symbols, and is not based on a dictionary word. The superuser can use the passwd command to change other users' passwords.
+[student@desktopX ~]$ passwd
+Changing password for user student.
+Changing password for student.
+(current) UNIX password: old_password
+New password: new_password
+Retype new password: new_password
+passwd: all authentication tokens updated successfully.
+
+Linux does not require file name extensions to classify files by type. The file command scans the beginning of a file's contents and displays what type it is. The files to be classified are passed as arguments to the command.
+[student@desktopX ~]$ file /etc/passwd
+/etc/passwd: ASCII text
+[student@desktopX ~]$ file /bin/passwd
+/bin/passwd: setuid ELF 64-bit LSB shared object, x86-64, version 1
+(SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32,
+BuildID[sha1]=0x91a7160a019b7f5f754264d920e257522c5bce67, stripped
+[student@desktopX ~]$ file /home
+/home: directory
+
+The head and tail commands display the beginning and end of a file respectively. By default, these commands display 10 lines, but they both have a -n option that allows a different number of lines to be specified. The file to display is passed as an argument to these commands.
+[student@desktopX ~]$ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+[student@desktopX ~]$ tail -n 3 /etc/passwd
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup:x:993:991::/run/gnome-initial-setup/:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+
+The wc command counts lines, words, and characters in a file. It can take a -l, -w, or -c option to display only the lines, words, or characters, respectively.
+[student@desktopX ~]$ wc /etc/passwd
+  39   70 2005 /etc/passwd
+[student@desktopX ~]$ wc -l /etc/passwd ; wc -l /etc/group
+  39 /etc/passwd
+  63 /etc/group
+[student@desktopX ~]$ wc -c /etc/group /etc/hosts
+ 843 /etc/group
+ 227 /etc/hosts
+1070 total
