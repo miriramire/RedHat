@@ -1,0 +1,19 @@
+To use a command effectively, a user needs to know what options and arguments it takes and in what order it expects them (the syntax of the command). Most commands have a --help option. This causes the command to print a description of what it does, a "usage statement" that describes the command's syntax, and a list of the options it accepts and what they do.
+
+Usage statements may seem complicated and difficult to read. They become much simpler to understand once a user becomes familiar with a few basic conventions:
+
+Square brackets, [], surround optional items.
+Anything followed by ... represents an arbitrary-length list of items of that type.
+Multiple items separated by pipes, |, means only one of them can be specified.
+Text in angle brackets, <>, represents variable data. For example, <filename> means â€œinsert the filename you wish to use hereâ€. Sometimes these variables are simply written in capital letters (e.g., FILENAME).
+
+Consider the first usage statement for the date command:
+[student@desktopX ~]$ date --help
+date [OPTION]... [+FORMAT]
+This indicates that date can take an optional list of options ([OPTION]...), followed by an optional format string, prefixed with a plus character, +, that defines how the current date should be displayed ([+FORMAT]). Since both of these are optional, date will work even if it is not given options or arguments (it will print the current date and time using its default format).
+
+System Documentation
+
+Manual pages, or man pages, consist of system documentation which may be installed that provides detailed information about specific kinds of topics. The manual is divided into sections numbered from 1 through 9, and each section is for a specific kind of information. For example, section 1 covers user programs; section 8 covers administratives programs. Man pages are referred to by their name, followed by the number of the relevant section in parentheses: bash(1) is the man page for the bash command in section 1 of the manual.
+To read a man page, enter the man command, followed optionally by the section of the manual for the man page and the name of the page itself.
+[student@desktopX ~]$ man 1 bash
