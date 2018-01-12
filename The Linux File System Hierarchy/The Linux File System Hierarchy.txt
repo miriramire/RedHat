@@ -1,1 +1,22 @@
-.
+/ (Starting point of the directory structure)
+|
+|
+|____Home____Students____File1  (/home/students/file1)
+|
+|____usr____share (/usr/share) (Share is not clear if it's a directory or if it's a file, to say that it's a directory we finish with/)
+|
+|
+|
+|
+|
+|
+
+A single period (.) means the current directory,
+whereas the double period (..) means the parent directory.
+An tilde (~) refers to the currently logged on user’s home directory,
+whereas we have tilde (~) and then a username like fred that refers to the user’s home directory, the user fred.
+
+typing in cd ~student, and I know right now that I'm in student’s home directory...
+by typing in pwd, so it tells me exactly where I am.
+cd ~ that takes to my home directory.
+cd - that will take me to the directory I was previously in.
