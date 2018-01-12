@@ -1,0 +1,103 @@
+Hey guys, welcome back.
+Now we are going to talking about the Linux file system hierarchy.
+Let’s go to the whiteboard.
+Every single file system tree works exactly like that.
+And how you have to think about it is that...
+the tree doesn’t exactly grow from the ground.
+The tree grows from its root.
+And similarly, we have the roots of our Linux file system.
+The indicator for the root of the file system is a single forward slash (/) .
+So over here,
+we have a single forward slash...
+indicating the starting point for our directory structure.
+What we can see over here is that we have the home directory,
+and the home directory is nested below the root of the file system tree.
+Then we have student,
+and look at the nesting relationship between student and home.
+Finally, we have file1.
+File1 is structured below student,
+student is below home,
+and home is below the root of the file system tree.
+So, we could articulate this as follows.
+Now, looking at this from left to right,
+we have the root of the file system indicated by /
+home
+/student
+/file1
+And once again,
+what we’re saying over here is that the rightmost element is nested below student,
+student is nested below home,
+and where we do we find home?
+At the root of the file system tree.
+Let’s go back to our terminal right now.
+That forward slash has got a couple of meanings.
+What we know is that if we make use of it on its own,
+it refers to the root of the file system.
+Now, the forward slash is also use to separate items in a path.
+So the example that we had was...
+/home/
+student/
+file1
+So what we can see over here is how we would go back separating these elements,
+is with that forward slash.
+However, that first forward slash,
+that is in reference to the root of the file system.
+Now, also, and this is very typical in Linux literature,
+a forward slash at the end of the name means that the item is a directory.
+Let’s go and have look at the whiteboard right now.
+What we know is that we have the root of the file system.
+And below the root of the file system,
+we have that usr directory.
+Don’t fall into the trap of saying that that’s user.
+It’s doesn’t actually contain user-related data.
+Next, we have the share directory.
+Now the share directory is nested below usr.
+Now, if we are to articulate this in text,
+writing out a /usr/share can be a bit ambiguous.
+Is  share a directory, or is it a file?
+So, what we would typically going and do is use the forward slash...
+at the end of that path.
+And that is our visual indicator that share is in fact a directory.
+So, what we know is that share is a directory;
+ it’s nested below usr,
+and usr, where is that? That’s at the root of the file system.
+I’m a firm believer in working smarter and not harder.
+So let’s have a look at a few shortcuts.
+A single period (.) means the current directory,
+whereas the double period (..) means the parent directory,
+of course, of the current directory.
+An tilde (~)
+refers to the currently logged on user’s home directory,
+whereas we have tilde (~) and then a username like fred
+that refers to the user’s home directory, the user fred, of course
+And a single dash (-), that refers to the previous directory that you were in.
+Let’s go and put this into practice right now.
+So I’m going to head over to the user's student home directory...
+by typing in cd ~student
+And I know right now that I'm in student’s home directory...
+by typing in pwd,
+so it tells me exactly where I am.
+I’m in student’s directory, which is below home,
+which is below root.
+Now typing in...
+cd ~ that takes to my home directory.
+And again, a shortcut for that is typing in d on its own.
+So let’s go and have a look at one more example,
+cd -,
+that will take me to the directory I was previously in.
+So prior to changing to my own home directory,
+I was working on the student user's home directory.
+Let's return to my home directory right now.
+So instead of typing in cd space ~, I can just type in cd on its own
+and if you are to look at the output  of the pwd command,
+it stands for print working directory.
+In other words, the working directory is the directory that you are in right now.
+And print means, well to display that.
+So let’s go to /usr/share...
+Now what directory was I in prior to changing to /usr/share?
+Of course, I was in my home directory,
+but let’s head over to another directory instead.
+The double period (..) is the reference to your parent directory.
+So the parent directory of /usr/ share is usr.
+Now what directory was I in prior to me changing to that one?
+Well, it’s really easy, cd - will take me there.
