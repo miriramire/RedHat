@@ -1,1 +1,32 @@
-.
+There are relative paths and absolute paths.
+An absolute path specifies the path... to a file regardless of your current position. And there’s no ambiguity. You know exactly where this file is. Now, absolute paths always begin with a leading forward slash (/).
+Example:
+  /home/student/foo.
+  
+Relative paths never, ever begin with a leading forward slash. And that is because it’s relative to your current location.So, you need to know the directory that you are currently located in, in order to calculate the relative path to a file.
+Example:
+  student
+ The reason why it’s a relative path is because it does not begin with a leading forward slash.
+  
+  
+------------------------------------------------------------
+mkdir scratch (Crear directorio)
+cd scratch/
+cd /home/ec2-user/scratch
+If i type:
+cd scratch
+-bash: cd: scratch: No such file or directory
+it’s expecting the scratch directory to be below my current location, and my current location is /home/student/scratch.
+I’m using mkdir -p and I’m creating the directory A. at the same time I’m creating the directory B, then C, then D.
+mkdir -p A/B/C/D
+let’s go and change into the directory C. Instead of typing in an absolute path, I’m going to use a relative path. So I’m going to say 
+cd A/B/C.
+Let’s go and make use of a relative path that begins with a double dot (..). So, I’m going to say cd .. Change directory to where?
+cd ..
+pwd
+/home/ec2-user/scratch/A/B
+cd -
+/home/ec2-user/scratch/A/B/C
+cd ../../.. 
+pwd
+/home/ec2-user/scratch
