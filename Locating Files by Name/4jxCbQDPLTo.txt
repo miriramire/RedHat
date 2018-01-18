@@ -1,0 +1,134 @@
+Hey guys, welcome back.
+Now, we going to have a look at locating files by name.
+In order to do so, you need to know about two concepts.
+These are absolute paths and relative paths.
+The rules are pretty basic, but let’s go through them together right now.
+So, an absolute path specifies the path...
+to a file regardless of your current position.
+And there’s no ambiguity.
+You know exactly where this file is.
+Now, absolute paths always begin with a leading forward slash (/).
+Let me give you an example:
+/home/student/foo.
+That is a path.
+Now, let’s have a look at how that...
+contrasts to relative paths.
+Now relative paths...
+never, ever begin with a leading forward slash.
+And that is because  it’s relative to your current location.
+So, you need to know the directory that...
+you are currently located in,
+in order to calculate the relative path to a file.
+Now, a relative path may begin with one...
+or more forward slashes, but we'lll go through that scenario together.
+Now, let me give you an example of a relative path:
+student
+Now in order for us to go and find...
+where the student file is, or where the student directory is,
+we need to understand where in the file system we are.
+So, let’s go to the whiteboard right now.
+What we notice is that we have a student directory,
+and the student directory is below home,
+home is below the root of the file system.
+So for us to articulate the absolute path for this student directory:
+so starting at the leftmost element,
+we are looking at the root of the file system.
+Afterwards, we have /home,
+afterwards we have /student,
+and once again we do make use of a forward slash as a file and directory separator.
+So, there’s no ambiguity over here,
+we know that, and now we read it from right to left.
+We know that the student directory...
+is below home,
+and home is below the root of the file system.
+So, let’s go and put this into commands right now.
+So, I’m going to use the cd command to change to that particular directory.
+So, I’m saying cd / no ambiguity,
+I’m saying at the root of the file system...
+there’s another directory called home,
+and below that directory...
+is a subdirectory called student.
+And that worked guys.
+Now in the absence of feedback, you know that the command completed successfully.
+But to validate the current location,
+we can always make use of the pwd command.
+Now let’s go and compare and contrast that to how relative paths work.
+Let’s recap the rules.
+Relative paths...
+never, ever begin with a leading forward slash,
+and it’s relative to your current location.
+So again, you need to know your current working directory.
+And it may begin with one or more periods.
+So, I’m going to go ahead and create a directory right now called scratch.
+Now, looking at that path over there, what does that tell you about the path scratch?
+Yes, it’s a relative path;
+it’s not an absolute path because...
+it doesn’t have the leading forward slash.
+So, what is this telling me over here is that,
+inside my current directory,
+and we have established that I'm inside /home/student,
+I’m wanting to create a directory called scratch.
+Now, there may be a bit of ambiguity because...
+in order for you to determine...
+the directory that scratch was created in,
+you need to know your current directory.
+So, let’s go and change to the scratch directory,
+cd scratch/
+and again I’m making use of an...
+absolute relative path. Yeah,
+it’s a relative path,
+and the reason why it’s a relative path is because...
+it does not begin with a leading forward slash.
+Now, I could have type out:
+/home/student/scratch/
+and that would have worked.
+But a much simpler way to have referred to the directory was...
+by typing in cd scratch.
+Now, would have that worked if I was in the directory that I’m in right now?
+Let’s go and find out.
+Of course not.
+Because, what I’m saying over here is I would like to change...
+to the scratch directory,
+and it’s expecting the scratch directory to be below my current location,
+and my current location is...
+/home/student/scratch.
+So of course that wouldn’t work.
+So let’s have a look at the following.
+I’m going to create the following directory path.
+So I’m using mkdir -p and I’m creating the directory A.
+Now, at the same time I’m creating the directory B, then C, then D.
+So, that entire path was created for me.
+Now, let’s go and change into the directory C.
+Now, instead of typing in an absolute path,
+I’m going to use a relative path.
+So I’m going to say cd A
+/B/C.
+Great, now that works.
+Now, let’s say I wanted to change to the B directory.
+I couldn’t say cd B,
+because what I’m referring to here is a relative path.
+So, I’m saying that the B directory is below my current directory, and it’s not.
+So, let’s go and make use of a relative path that begins with a double dot (..).
+So, I’m going to say cd .. Change directory to where?
+The parent directory of my current directory.
+And if you go with the change to the B directory,
+well you have achieved that,
+cd .. does it for me.
+So, let’s go back through to the C directory,
+by typing in cd -
+And there you go. Remember the dash refers to your previous directory.
+So now to return to this scratch directory.
+I need to eliminate 1,
+2,
+3
+paths from the right of that statement.
+So, I’m going to type in cd .. and that removes the C.
+/.. that removes the B from the rightmost of the paths statement.
+/.. and that removes the A.
+So, if my goal is to change to /home/student/scratch,
+Let’s have a look.
+And there you go, I’m now at /home/student/scratch.
+So what just happened over here is that I made use of a relative path.
+Sometimes it may be quicker...
+for you to make use of an absolute path.
+Other times it may be a lot faster for you to make use of a relative path.
