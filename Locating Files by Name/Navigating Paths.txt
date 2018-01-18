@@ -1,0 +1,108 @@
+The pwd command displays the full path name of the current location, which helps determine appropriate syntax for reaching files using relative path names. The ls command lists directory contents for the specified directory or, if no directory is given, for the current directory.
+
+[student@desktopX ~]$ pwd
+/home/student
+[student@desktopX ~]$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+[student@desktopX ~]$
+
+Use the cd command to change directories. With a working directory of /home/student, relative path syntax is shortest to reach the Videos subdirectory. The Documents subdirectory is then reached using absolute path syntax.
+
+[student@desktopX ~]$ cd Videos
+[student@desktopX Videos]$ pwd
+/home/student/Videos
+[student@desktopX Videos]$ cd /home/student/Documents
+[student@desktopX Documents]$ pwd
+/home/student/Documents
+[student@desktopX Documents]$ cd
+[student@desktopX ~]$ pwd
+/home/student
+[student@desktopX ~]$
+
+The shell program prompt displays, for brevity, only the last component of the current directory path. For /home/student/Videos, only Videos displays. At any time, return to the user's home directory using cd without specifying a destination. The prompt displays the tilde (~) character when the user's current directory is their home directory.
+
+The touch command normally updates a file's timestamp to the current date and time without otherwise modifying it. This is useful for creating empty files, which can be used for practice, since "touching" a file name that does not exist causes the file to be created. Using touch, practice files are created in the Documents and Videos subdirectories.
+
+[student@desktopX ~]$ touch Videos/blockbuster1.ogg
+[student@desktopX ~]$ touch Videos/blockbuster2.ogg
+[student@desktopX ~]$ touch Documents/thesis_chapter1.odf
+[student@desktopX ~]$ touch Documents/thesis_chapter2.odf
+[student@desktopX ~]$
+
+The ls command has multiple options for displaying attributes on files. The most common and useful are -l (long listing format), -a (all files, includes hidden files), and -R (recursive, to include the contents of all subdirectories).
+
+[student@desktopX ~]$ ls -l
+total 15
+drwxr-xr-x.  2 student student 4096 Feb  7 14:02 Desktop
+drwxr-xr-x.  2 student student 4096 Jan  9 15:00 Documents
+drwxr-xr-x.  3 student student 4096 Jan  9 15:00 Downloads
+drwxr-xr-x.  2 student student 4096 Jan  9 15:00 Music
+drwxr-xr-x.  2 student student 4096 Jan  9 15:00 Pictures
+drwxr-xr-x.  2 student student 4096 Jan  9 15:00 Public
+drwxr-xr-x.  2 student student 4096 Jan  9 15:00 Templates
+drwxr-xr-x.  2 student student 4096 Jan  9 15:00 Videos
+[student@desktopX ~]$ ls -la
+total 15
+drwx------. 16 student student   4096 Feb  8 16:15 .
+drwxr-xr-x.  6 root    root      4096 Feb  8 16:13 ..
+-rw-------.  1 student student  22664 Feb  8 00:37 .bash_history
+-rw-r--r--.  1 student student     18 Jul  9  2013 .bash_logout
+-rw-r--r--.  1 student student    176 Jul  9  2013 .bash_profile
+-rw-r--r--.  1 student student    124 Jul  9  2013 .bashrc
+drwxr-xr-x.  4 student student   4096 Jan 20 14:02 .cache
+drwxr-xr-x.  8 student student   4096 Feb  5 11:45 .config
+drwxr-xr-x.  2 student student   4096 Feb  7 14:02 Desktop
+drwxr-xr-x.  2 student student   4096 Jan  9 15:00 Documents
+drwxr-xr-x.  3 student student   4096 Jan 25 20:48 Downloads
+drwxr-xr-x. 11 student student   4096 Feb  6 13:07 .gnome2
+drwx------.  2 student student   4096 Jan 20 14:02 .gnome2_private
+-rw-------.  1 student student  15190 Feb  8 09:49 .ICEauthority
+drwxr-xr-x.  3 student student   4096 Jan  9 15:00 .local
+drwxr-xr-x.  2 student student   4096 Jan  9 15:00 Music
+drwxr-xr-x.  2 student student   4096 Jan  9 15:00 Pictures
+drwxr-xr-x.  2 student student   4096 Jan  9 15:00 Public
+drwxr-xr-x.  2 student student   4096 Jan  9 15:00 Templates
+drwxr-xr-x.  2 student student   4096 Jan  9 15:00 Videos
+[student@desktopX ~]$
+
+The two special directories at the top of the listing refer to the current directory (.) and the parent directory (..). These special directories exist in every directory on the system. Their usefulness will become apparent when file management commands are practiced.
+
+[ec2-user@ip-172-31-30-211 ~]$ ls -R
+.:
+scratch
+
+./scratch:
+A  text.txt
+
+./scratch/A:
+B
+
+./scratch/A/B:
+C
+
+./scratch/A/B/C:
+D
+
+./scratch/A/B/C/D:
+
+The cd command has many options. A few are so useful as to be worth practicing early and using often. The command cd - changes directory to the directory where the user was previous to the current directory. Watch as this user takes advantage of this behavior to alternate between two directories, useful when processing a series of similar tasks.
+
+[student@desktopX ~]$ cd Videos
+[student@desktopX Videos]$ pwd
+/home/student/Videos
+[student@desktopX Videos]$ cd /home/student/Documents
+[student@desktopX Documents]$ pwd
+/home/student/Documents
+[student@desktopX Documents]$ cd -
+[student@desktopX Videos]$ pwd
+/home/student/Videos
+[student@desktopX Videos]$ cd -
+[student@desktopX Documents]$ pwd
+/home/student/Documents
+[student@desktopX Documents]$ cd -
+[student@desktopX Videos]$ pwd
+/home/student/Videos
+[student@desktopX Videos]$ cd
+[student@desktopX ~]$
+
+The cd .. command uses the .. hidden directory to move up one level to the parent directory, without needing to know the exact parent name. The other hidden directory (.) specifies the current directory on commands in which the current location is either the source or destination argument, avoiding the need to type out the directory's absolute path name.
