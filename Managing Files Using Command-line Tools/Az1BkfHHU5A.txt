@@ -1,0 +1,113 @@
+Welcome back.
+Now we are going to have a look at managing files from the command line.
+A few useful commands,  include cp, which is used to copy a file.
+If you want to copy a directory,
+you can make use of an option called -r.
+Now the -r option means to recursively conduct the transaction.
+So, because we are copying something with the -r option,
+we’re saying that we going to copy the parent,
+as well as all the children below that parent;
+so all the sub-items are going to be included as well.
+In order for you to move a file,
+we can make use of the mv command, really simple.
+And the mv command is also used to rename a file.
+Deleting a file can be done  using the rm command,
+and deleting a directory,
+well, you can make use of the rm dir command.
+but it comes with the warning;
+it’s only going to delete the directory if it’s empty.
+But I’ll show you how we can work around that.
+We’re also going have a look at creating a file using the touch command.
+And to create a directory,
+we can make use of the mkdir command.
+Let’s go to our terminal right now.
+So let’s begin by making a directory,
+so I’m going to use mkdir scratch.
+Now, the next logical thing to do is to change to that directory.
+And for that, we are going to make use of the cd command.
+But, there’s no way that I'm going to type out scratch from the very top.
+I could use Tab Completion,
+and I could use s and then hit Tab.
+But what if there’s more than one directory that begins with an s?
+So, I’m going to work smarter over here.
+And, I’m going to make use of my argument history Alt+.
+So now I’m inside of the scratch directory,
+so let’s go and create a brand new file.
+To do that, I’m going to make use of foo.
+And you can see that the file foo has been created as an empty file.
+So you can see, yes, foo’s there,
+and it is 0 bytes in size.
+Now, in order for me to go and rename the file,
+I can make use of the mv command.
+So, this can change the name of foo to bar.
+Of course the file foo no longer exists...
+because we did rename it to bar.
+Next what we are going to do is have to look at on moving the file...
+from one location to another location.
+So to do that, I’m going to make use of the mv command again,
+and this time the destination is not going to be a new file name,
+so that second argument is in fact going to be a location,
+a directory location that I’m relocating the bar file to.
+So of course I did not rename bar...
+to /var/tmp, what I did is that I moved this,
+so let’s see where it is right now.
+It’s now happily residing in the /var/tmp/ directory.
+So, having a look at that path over there,
+we know that bar is below tmp,
+tmp is below var,
+and var is below the root of the file system.
+So you would always read these paths from the rightmost element through to the left.
+Let’s have a look at deleting a file and deleting a directory right now.
+But before we do so, let’s go and copy some more content.
+So to copy an entire directory,
+we can’t use the cp command on its own.
+So if I wanted to copy the /etc/ssh/ directory,
+and to indicate to you that this is in fact a directory,
+I’m just going to complete that path with a trailing forward slash.
+And, where I’m going to copy the ssh directory is to my current location,
+and it’s going to error out.
+So we going to make use of the recursive option,
+which means that we going to conduct...
+the transaction against the /etc/ssh/ directory.
+So we’re going to copy the ssh directory...
+along with all its children, along with all these sub-items below ssh.
+And where we are are going to copying it  is to the current location.
+Now fear not, it said that I couldn't copy a number of items...
+and it referred to those files there,
+and that is because I don’t have permissions to do so.
+I’m logged in as a normal user,
+and of course some of these files have been secured so that...
+only the administrative user can access them.
+Recall the use of the $.
+The $ is the visual indicates that we have for you...
+to show you that you’re logged in as a normal user.
+So looking at the contents of the current directory,
+I do indeed have the ssh directory present.
+Of course, you can make use of the mv command to also go and rename directories.
+So I’m going to rename the ssh directory to hss.
+Now if you wanted to delete something,
+you could make use of the rm command.
+So I’m going to go and delete hss.
+And it says, well you can’t remove it because it is at directory.
+So what we know is that you can make use of the rmdir command.
+And you can see that warning is staring you right there in the face.
+So let’s go and try and delete the hss directory over there.
+And it says, well, you can’t delete it because it’s empty.
+So the use of the rm -r option means that we’re going to delete something,
+we’re going to delete hss...
+and we’re going to do so recursively.
+In other words, if that is a parent...
+and if that parent contains children, in other words, sub-items,
+the sub-items are going to be deleted as well.
+So let’s get in it into there.
+And now I have an empty directory.
+So in this lesson, we had a look at copying files,
+copying a directory.
+We had a look at moving a file,
+renaming a file,
+deleting a file, deleting a directory.
+We also had a look at creating a file using touch...
+and creating a directory using the mkdir.
+And what we also did is that  we worked smarter,
+we made use of a number of Bash shortcuts...
+that we went through in a previous lesson.
