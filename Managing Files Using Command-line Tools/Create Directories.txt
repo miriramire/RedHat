@@ -1,0 +1,37 @@
+The mkdir command creates one or more directories or subdirectories, generating errors if the file name already exists or when attempting to create a directory in a parent directory that doesn't exist. The -p parent option creates missing parent directories for the requested destination. Be cautious when using mkdir -p, since accidental spelling mistakes create unintended directories without generating error messages.
+In the following example, a user attempts to use mkdir to create a subdirectory named Watched in the existing Videos directory, but mistypes the directory name.
+[student@desktopX ~]$ mkdir Video/Watched
+mkdir: cannot create directory `Video/Watched': No such file or directory
+
+The mkdir failed because Videos was misspelled and the directory Video does not exist. If the user had used mkdir with the -p option, there would be no error and the user would end up with two directories, Videos and Video, and the Watched subdirectory would be created in the wrong place.
+
+[student@desktopX ~]$ mkdir Videos/Watched
+[student@desktopX ~]$ cd Documents
+[student@desktopX Documents]$ mkdir ProjectX ProjectY
+[student@desktopX Documents]$ mkdir -p Thesis/Chapter1 Thesis/Chapter2 Thesis/Chapter3
+[student@desktopX Documents]$ cd
+[student@desktopX ~]$ ls -R Videos Documents
+Documents:
+ProjectX  ProjectY  Thesis  thesis_chapter1.odf  thesis_chapter2.odf
+
+Documents/ProjectX:
+
+Documents/ProjectY:
+
+Documents/Thesis:
+Chapter1  Chapter2  Chapter3
+
+Documents/Thesis/Chapter1:
+
+Documents/Thesis/Chapter2:
+
+Documents/Thesis/Chapter3:
+
+Videos:
+blockbuster1.ogg  blockbuster2.ogg  Watched
+
+Videos/Watched:
+
+[student@desktopX ~]$
+
+The last mkdir created three ChapterN subdirectories with one command. The -p parent option created the missing parent directory Thesis.
