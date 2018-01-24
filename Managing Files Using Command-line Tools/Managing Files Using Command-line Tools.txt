@@ -1,1 +1,30 @@
-.
+ ------------------------------------------------------
+ create a brand new file.
+ $touch foo
+ you can see that the file foo has been created as an empty file.
+ $ls -lh foo
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 24 14:40 foo
+Change the name
+$mv foo bar
+$ ls -lh bar
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 24 14:40 bar
+moving the file from one location to another location.
+$mv bar /var/tmp
+$ ls -lh /var/tmp/bar
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 24 14:40 /var/tmp/bar
+
+So to copy an entire directory, we can’t use the cp command on its own. So if I wanted to copy the /etc/ssh/ directory, and to indicate to you that this is in fact a directory, I’m just going to complete that path with a trailing forward slash. And, where I’m going to copy the ssh directory is to my current location, and it’s going to error out.
+$ cp /etc/ssh/ .
+cp: omitting directory ‘/etc/ssh/’
+So we’re going to copy the ssh directory along with all its children, along with all these sub-items below ssh.
+$ cp -r /etc/ssh/ .
+$ ls
+ssh
+$ mv ssh hss
+Delete a directory
+$rm hss
+rm: cannot remove ‘hss’: Is a directory
+$ rmdir hss
+rmdir: failed to remove ‘hss’: Directory not empty
+$ rm -r hss
+$ ls
