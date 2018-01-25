@@ -1,0 +1,37 @@
+Default syntax for rm deletes files, but not directories. Deleting a directory, and potentially many subdirectories and files below it, requires the -r recursive option. There is no command-line undelete feature, nor a trash bin from which to restore.
+
+[student@desktopX Documents]$ pwd
+/home/student/Documents
+[student@desktopX Documents]$ rm thesis_chapter2_reviewed.odf
+[student@desktopX Documents]$ rm Thesis/Chapter1
+rm: cannot remove `Thesis/Chapter1': Is a directory
+[student@desktopX Documents]$ rm -r Thesis/Chapter1
+[student@desktopX Documents]$ ls -l Thesis
+total 8
+drwxrwxr-x. 2 student student 4096 Feb 11 12:47 Chapter2
+drwxrwxr-x. 2 student student 4096 Feb 11 12:48 Chapter3
+[student@desktopX Documents]$ rm -ri Thesis
+rm: descend into directory `Thesis'? y
+rm: descend into directory `Thesis/Chapter2'? y
+rm: remove regular empty file `Thesis/Chapter2/thesis_chapter2.odf'? y
+rm: remove directory `Thesis/Chapter2'? y
+rm: remove directory `Thesis/Chapter3'? y
+rm: remove directory `Thesis'? y
+[student@desktopX Documents]$
+
+After rm failed to delete the Chapter1 directory, the -r recursive option succeeded. The last rm command parsed into each subdirectory first, individually deleting contained files before removing each now-empty directory. Using -i will interactively prompt for each deletion. This is essentially the opposite of -f which will force the deletion without prompting the user.
+
+The rmdir command deletes directories only if empty. Removed directories cannot be undeleted.
+
+[student@desktopX Documents]$ pwd
+/home/student/Documents
+[student@desktopX Documents]$ rmdir  ProjectY
+[student@desktopX Documents]$ rmdir  ProjectX
+rmdir: failed to remove `ProjectX': Directory not empty
+[student@desktopX Documents]$ rm -r ProjectX
+[student@desktopX Documents]$ ls -lR
+.:
+total 0
+[student@desktopX Documents]$
+
+The rmdir command failed to delete non-empty ProjectX, but rm -r succeeded.
