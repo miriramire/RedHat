@@ -1,0 +1,42 @@
+The cp command copies one or more files to become new, independent files. Syntax allows copying an existing file to a new file in the current or another directory, or copying multiple files into another directory. In any destination, new file names must be unique. If the new file name is not unique, the copy command will overwrite the existing file.
+
+[student@desktopX ~]$ cd Videos
+[student@desktopX Videos]$ cp blockbuster1.ogg blockbuster3.ogg
+[student@desktopX Videos]$ ls -l
+total 0
+-rw-rw-r--. 1 student student    0 Feb  8 16:23 blockbuster1.ogg
+-rw-rw-r--. 1 student student    0 Feb  8 16:24 blockbuster2.ogg
+-rw-rw-r--. 1 student student    0 Feb  8 19:02 blockbuster3.ogg
+drwxrwxr-x. 2 student student 4096 Feb  8 23:35 Watched
+[student@desktopX Videos]$
+
+When copying multiple files with one command, the last argument must be a directory. Copied files retain their original names in the new directory. Conflicting file names that exist at a destination may be overwritten. To protect users from accidentally overwriting directories with contents, multiple file cp commands ignore directories specified as a source. Copying non-empty directories, with contents, requires the -r recursive option.
+
+[student@desktopX Videos]$ cd ../Documents
+[student@desktopX Documents]$ cp thesis_chapter1.odf thesis_chapter2.odf Thesis ProjectX
+cp: omitting directory `Thesis'
+[student@desktopX Documents]$ cp -r Thesis ProjectX
+[student@desktopX Documents]$ cp thesis_chapter2.odf Thesis/Chapter2/
+[student@desktopX Documents]$ ls -R
+.:
+ProjectX  ProjectY  Thesis  thesis_chapter1.odf  thesis_chapter2.odf
+
+./ProjectX:
+Thesis  thesis_chapter1.odf  thesis_chapter2.odf
+
+./ProjectX/Thesis:
+
+./ProjectY:
+
+./Thesis:
+Chapter1  Chapter2  Chapter3
+
+./Thesis/Chapter1:
+
+./Thesis/Chapter2:
+thesis_chapter2.odf
+
+./Thesis/Chapter3:
+[student@desktopX Documents]$
+
+In the first cp command, Thesis failed to copy, but thesis_chapter1.odf and thesis_chapter2.odf succeeded. Using the -r recursive option, copying Thesis succeeded.
