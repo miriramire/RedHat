@@ -1,0 +1,47 @@
+The mv command renames files in the same directory, or relocates files to a new directory. File contents remain unchanged. Files moved to a different file system require creating a new file by copying the source file, then deleting the source file. Although normally transparent to the user, large files may take noticeably longer to move.
+
+[student@desktopX Videos]$ cd ../Documents
+[student@desktopX Documents]$ ls -l
+total 0
+-rw-rw-r--. 1 student student    0 Feb  8 16:24 thesis_chapter1.odf
+-rw-rw-r--. 1 student student    0 Feb  8 16:24 thesis_chapter2.odf
+[student@desktopX Documents]$ mv thesis_chapter2.odf thesis_chapter2_reviewed.odf
+[student@desktopX Documents]$ mv thesis_chapter1.odf Thesis/Chapter1
+[student@desktopX Documents]$ ls -lR
+.:
+total 16
+drwxrwxr-x. 2 student student 4096 Feb 11 11:58 ProjectX
+drwxrwxr-x. 2 student student 4096 Feb 11 11:55 ProjectY
+drwxrwxr-x. 5 student student 4096 Feb 11 11:56 Thesis
+-rw-rw-r--. 1 student student    0 Feb 11 11:54 thesis_chapter2_reviewed.odf
+
+./ProjectX:
+total 0
+-rw-rw-r--. 1 student student 0 Feb 11 11:58 thesis_chapter1.odf
+-rw-rw-r--. 1 student student 0 Feb 11 11:58 thesis_chapter2.odf
+
+./ProjectX/Thesis:
+total 0
+
+./ProjectY:
+total 0
+
+./Thesis:
+total 12
+drwxrwxr-x. 2 student student 4096 Feb 11 11:59 Chapter1
+drwxrwxr-x. 2 student student 4096 Feb 11 11:56 Chapter2
+drwxrwxr-x. 2 student student 4096 Feb 11 11:56 Chapter3
+
+./Thesis/Chapter1:
+total 0
+-rw-rw-r--. 1 student student 0 Feb 11 11:54 thesis_chapter1.odf
+
+./Thesis/Chapter2:
+total 0
+-rw-rw-r--. 1 student student 0 Feb 11 11:54 thesis_chapter2.odf
+
+./Thesis/Chapter3:
+total 0
+[student@desktopX Documents]$
+
+The first mv command is an example of renaming a file. The second causes the file to be relocated to another directory.
