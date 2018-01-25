@@ -1,0 +1,55 @@
+Clous computing is a model for enabling, ubiquitous, convinient, on-demand network access to share a pool of configurable computer resources. Characteristics:
+*Self-service (Allow cloud consumers to be able to provision instances with their computer resources on their own)
+*Multilatency (Allow multiple cloud consumers to share the underlying hardware)
+*Elasticity (Being able to scale out add aditional resources on demand)
+*Telemetry (Resources need to be able to be monitored and metered)
+
+Cloud workloads:
+The goal there is to be able to scale out. Being able to add aditional instances.
+
+Cloud Deployment Model:
+*Private Cloud:
+Used by a single organization, they have a hardware residing in their own datacenter.
+*Hybrid Cloud:
+We use the private cloud for the core of our resources, the standard amount of our resources, and when we need it we can expand for the public cloud.
+*Public Cloud:
+Available to general public, it is run by a cloud provider.
+
+Infrastucture as-a-services:
+*Open Physical
+*Open Virtualization
+*Open Private CLoud
+*Open Hybrid Cloud
+
+Platform as-a-services:
+*Open Development
+*Open Deployment
+*Open CLoud PLatforms
+*Open Operations
+
+Open Hybrid Cloud:
+Redhat provide an Open Hybrid Cloud
+
+                                ------------------_______________________
+                                    CloudForms                           |
+                                ------------------                       Cloud Management
+                                    Satelite                             |
+                                ------------------_______________________|
+                                App|App|App|App|App
+                                ------------------_______________________
+                                    JBoss                                 |
+                                ------------------                        |
+                                    OpenShift                             |
+                                ------------------                        |
+                                 RHEV-M   |   RHELOSP                     |
+                                ------------------                        |
+                              Red Hat Enterprise Linux                    Cloud Engines
+                                ------------------                        |
+                             Red Hat Storage Server / ICE                 |
+                                ------------------                        |
+                             Physical Infraestructure                     |
+                                ------------------_______________________ |
+                                
+Virtualization vs Cloud Computing
+On of the ideas of virtualization is that these infrastructures are considered stateful. We want to be able to scale them up.
+In the cloud infrastructure, we have the same basic infrastructure elements. The purpose of Cloud Computing is to allow for greater scalability. It gives us a model that is ultimately decoupling.
