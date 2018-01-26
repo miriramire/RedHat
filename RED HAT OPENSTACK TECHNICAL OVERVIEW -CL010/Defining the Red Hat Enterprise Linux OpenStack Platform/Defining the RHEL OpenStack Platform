@@ -1,0 +1,31 @@
+Traditional virtualization has limited scalability. Cloud computing is an abstraction of the underlying infrastructure.
+Administrators are able to focus less on available hardware and more on sizing and application requirements.
+Cloud infrastructure are stateless, the application can run anywhere and data is virtually made available from any computing node.
+Cloud computing allows the abstraction of a lot of services, DNS infractructures, firewall, databases....
+APIs are the cornerstone of cloud computing. This gives to the developers the ability to write their own infrastructure.
+RHEL OpenStack platform is really suited for companies who want to propose an on-demand fast provisioning infrastructure, who need multi-tenancy and isolation across customers and projects.
+
+What is openstack?
+OpenStack is a combination of open source tools (known as projects) that use pooled virtual resources to build and manage private and public clouds. 
+
+When did RH get involved?
+Mon, 13 Aug 2012 08:52:37 -0400 (EDT)
+
+Services:
+Horizon: Dashboard, it manage the services.
+Keystone: Centralized identity service, it provides authentication and authorization.
+Neutron: The key element for managing networking.
+Storage:
+    -Cinder, providing us block storage or a volume.
+    -Glance, acts as the registry of virtual machine images.
+    -Swift, permforms object storage.
+Nova: Compute service, it manage all the virtual machines.
+Ceilometer: monitoring and telemetry
+Heat: Allow us to manage and create multiple composite cloud applications.
+
+Five things every excutive needs to know
+*Standarization is its foundation
+*It must offer less cost, more innovation
+*It needs industry-wide support
+*It success calls for change
+*It's continuallye emerging
