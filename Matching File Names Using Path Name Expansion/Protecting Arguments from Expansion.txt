@@ -1,0 +1,18 @@
+Many characters have special meaning in the Bash shell. To ignore meta-character special meanings, quoting and escaping are used to protect them from shell expansion. The backslash (\) is an escape character in Bash, protecting the single following character from special interpretation. To protect longer character strings, single (') or double quotes (") are used to enclose strings.
+
+Use double quotation marks to suppress globbing and shell expansion, but still allow command and variable substitution. Variable substitution is conceptually identical to command substitution, but may use optional brace syntax.
+
+[student@desktopX glob]$ host=$(hostname -s); echo $host
+desktopX
+[student@desktopX glob]$ echo "***** hostname is ${host} *****"
+***** hostname is desktopX *****
+[student@desktopX glob]$ echo Your username variable is \$USER.
+Your username variable is $USER.
+[student@desktopX glob]$ 
+Use single quotation marks to interpret all text literally. Observe the difference, on both screen and keyboard, between the single quote (') and the command substitution backtick (`). Besides suppressing globbing and shell expansion, quotations direct the shell to additionally suppress command and variable substitution. The question mark is a meta-character that also needed protection from expansion.
+
+[student@desktopX glob]$ echo "Will variable $host evaluate to $(hostname -s)?"
+Will variable desktopX evaluate to desktopX?
+[student@desktopX glob]$ echo 'Will variable $host evaluate to $(hostname -s)?'
+Will variable $host evaluate to $(hostname -s)?
+[student@desktopX glob]$ 
