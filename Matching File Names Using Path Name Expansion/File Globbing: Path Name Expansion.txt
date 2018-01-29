@@ -1,0 +1,45 @@
+The Bash shell has a path name-matching capability historically called globbing, abbreviated from the "global command" file path expansion program of early UNIX. The Bash globbing feature, commonly called pattern matching or "wildcards", makes managing large numbers of files easier. Using meta-characters that "expand" to match file and path names being sought, commands perform on a focused set of files at once.
+
+Pattern Matching
+Globbing is a shell command-parsing operation that expands a wildcard pattern into a list of matching path names. Command-line meta-characters are replaced by the match list prior to command execution. Patterns, especially square-bracketed character classes, that do not return matches display the original pattern request as literal text. The following are common meta-characters and pattern classes.
+
+Pattern	              Matches
+*	                    Any string of zero or more characters.
+?	                    Any single character.
+~	                    The current user's home directory.
+~username	            User username's home directory.
+~+	                  The current working directory.
+~-	                  The previous working directory.
+[abc...]	            Any one character in the enclosed class.
+[!abc...]	            Any one character not in the enclosed class.
+[^abc...]	            Any one character not in the enclosed class.
+[[:alpha:]]	          Any alphabetic character.(1)
+[[:lower:]]	          Any lower-case character.(1)
+[[:upper:]]	          Any upper-case character.(1)
+[[:alnum:]]	          Any alphabetic character or digit.(1)
+[[:punct:]]	          Any printable character not a space or alphanumeric.(1)
+[[:digit:]]	          Any digit, 0-9.(1)
+[[:space:]]	          Any one whitespace character; may include tabs, newline, or carriage returns, and form feeds as well as space.(1)
+Note	                (1)pre-set POSIX character class; adjusts for current locale.
+
+A sample set of files is useful to demonstrate expansion.
+
+[student@desktopX ~]$ mkdir glob; cd glob
+[student@desktopX glob]$ touch alfa bravo charlie delta echo able baker cast dog easy
+[student@desktopX glob]$ ls
+able  alfa  baker  bravo  cast  charlie  delta  dog  easy  echo
+[student@desktopX glob]$ 
+
+First, simple pattern matches using * and ?.
+
+[student@desktopX glob]$ ls a*
+able  alfa
+[student@desktopX glob]$ ls *a*
+able  alfa  baker  bravo  cast  charlie  delta  easy
+[student@desktopX glob]$ ls [ac]*
+able  alfa  cast  charlie
+[student@desktopX glob]$ ls ????
+able  alfa  cast  easy  echo
+[student@desktopX glob]$ ls ?????
+baker  bravo  delta
+[student@desktopX glob]$ 
