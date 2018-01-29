@@ -1,0 +1,97 @@
+star (*) that matches to zero or more characters.
+question mark (?) which matches to a single character.
+Tilde (~) that matches to the current user’s home directory.
+Tilde and then the username, that matches to that user's home directory.
+Dash (-) matches your previous directory.
+Double dot (..) matches to the parent directory of your current directory.
+single dot (.) matches to your current directory.
+We’re also going to have a look at brace ( { } ) expansion and command substitution as well.
+
+[ec2-user@ip-172-31-27-122 scratch]$ ls
+file1  File1  file2  File2  file3  File3  file4  File4  file5  File5
+[ec2-user@ip-172-31-27-122 scratch]$ ls F*
+File1  File2  File3  File4  File5
+[ec2-user@ip-172-31-27-122 scratch]$ ls file?
+file1  file2  file3  file4  file5
+[ec2-user@ip-172-31-27-122 scratch]$ ls file[12]
+file1  file2
+[ec2-user@ip-172-31-27-122 scratch]$ ls
+file1  File100b  File100e  file100t   file100y  file2  file3  file4  file5
+File1  File100d  file100o  file100tf  File100y  File2  File3  File4  File5
+[ec2-user@ip-172-31-27-122 scratch]$ ls [fF]ile*[a-z]
+File100b  File100d  File100e  file100o  file100t  file100tf  file100y  File100y
+[ec2-user@ip-172-31-27-122 ~]$ cd playarea
+[ec2-user@ip-172-31-27-122 playarea]$ touch Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+[ec2-user@ip-172-31-27-122 playarea]$ ls -l
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Friday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Monday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Sunday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Thursday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Tuesday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Wednesday
+[ec2-user@ip-172-31-27-122 playarea]$ touch Sunday\ Monday\ Tuesday\ Wednesday\ Thursday\ Friday\ Saturday
+[ec2-user@ip-172-31-27-122 playarea]$ ls -l
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Friday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Monday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Sunday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Thursday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Tuesday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Wednesday
+[ec2-user@ip-172-31-27-122 playarea]$ touch "January February March April"
+[ec2-user@ip-172-31-27-122 playarea]$ ls -l
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Friday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 January February March April
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Monday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Sunday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Thursday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Tuesday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Wednesday
+[ec2-user@ip-172-31-27-122 playarea]$ touch file{a..g}
+[ec2-user@ip-172-31-27-122 playarea]$ ls -l
+total 0
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filea
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 fileb
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filec
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filed
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filee
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filef
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 fileg
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Friday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 January February March April
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Monday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Sunday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Thursday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Tuesday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Wednesday
+[ec2-user@ip-172-31-27-122 playarea]$ date +%F
+2018-01-29
+[ec2-user@ip-172-31-27-122 playarea]$ mkdir $(date +%F)
+[ec2-user@ip-172-31-27-122 playarea]$ ls -l
+total 0
+drwxrwxr-x. 2 ec2-user ec2-user 6 Jan 29 15:17 2018-01-29
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filea
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 fileb
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filec
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filed
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filee
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 filef
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:16 fileg
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Friday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 January February March April
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Monday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Sunday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:12 Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:09 Thursday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Tuesday
+-rw-rw-r--. 1 ec2-user ec2-user 0 Jan 29 15:07 Wednesday
