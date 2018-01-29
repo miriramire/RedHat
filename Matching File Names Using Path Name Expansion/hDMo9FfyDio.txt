@@ -1,0 +1,146 @@
+Welcome back.
+We are now going to talk about filename expansion.
+And this is all about making life a lot easier for you...
+by employing the strategy of working smarter and not harder.
+Let's have a look.
+So we have a star (*) that matches to zero or more characters.
+We can make use of the question mark (?) which matches to a single character.
+Tilde (~) that matches to the current user’s home directory.
+Tilde and then the username...
+that matches to that user's home directory.
+And what you have to keep in mind is that...
+the user that you are referring to,
+may not have their home directory in the location that you expect.
+Dash (-) matches your previous directory.
+Double dot (..) matches to the parent directory of your current directory.
+And we know that a single dot (.)
+matches to your current directory.
+We’re also going to have a look at brace ( { } ) expansion...
+and command substitution as well.
+So let’s get started with the basics.
+I'm going to do an ls right now and you’ll see that...
+I have one directory called scratch.
+And, I’m going to head in to the directory scratch.
+I’m going to do an ls right now,
+and you’ll see that I have one directory called scratch.
+Let’s head into that directory.
+Inside scratch, I've got a number of files that have been pre-created.
+So if you only want to display those filenames...
+that begin with an uppercase F,
+you could say ls F.
+And if you don't care how many characters come afterwards...
+or what those characters are,
+you can make use of the star (*)  like that,
+so it returns a File1
+File2, File3, FILE400, FILE401, FILE402, as well as FILE403.
+Of course we know that operating systems should be case sensitive.
+If we say, ls file?
+I'm saying you’re only allowed to return...
+those files that match a lowercase file...
+and then a single character afterwards.
+We don't care what the character is,
+but it has to be a single character...
+so it returns files1, 2, and 3.
+Now what I can do is that I could expand upon that...
+by telling my shell to return...
+those files that even contain a 1 or 2.
+So we are only allowed a match...
+one character from that particular set at a time.
+So 1 and 2 is allowed.
+Now I'm not looking for file12.
+What I'm looking for are files1 and 2.
+And that’s exactly what is returned over there.
+Let's have a look at another example.
+I don’t care whether we are making use of an uppercase F or a lowercase f- .
+Now what I could have done is use ls ?ile.
+But what about other characters as well?
+You see that question mark (?)
+would possibly match to undesirable characters.
+So what I'm going to do is that I'm going to be slightly more explicit,
+and I'm going to tell my shell that you can match...
+to any one of those characters in the set,
+so either lowercase f or an uppercase F.
+I don't care how many characters come afterwards;
+however, it must end in a letter.
+So how about that?
+Now,how do I specify all the letters of the alphabet?
+Well, I could go along and say abcdef and so forth.
+Or what I could do is specify a range.
+So again in my square brackets here,
+I could type a through to z.
+And because Linux is case sensitive,
+it's only going to match to the lowercase characters that I’ve specified.
+So as you can see, every result over here begins with...
+either an uppercase F or a lowercase f.
+And because it don't have any files that begin with an uppercase F,
+that end in a letter,
+ it only returns file then 100a, 100b and so forth.
+Let's now have a look at brace expansion.
+So I'm creating a new directory called playarea,
+and I’m changing into that directory.
+And what I'm going to do is create a number of files...
+named after the days of the week.
+So I could say,
+touch...
+Sunday...
+Monday...
+Tuesday...
+Wednesday
+Thursday...
+ Friday and Saturday.
+Now, the space character over there is my separator,
+and what it is doing is that it is separating the elements.
+So, every element is separated by that space,
+which means that Sunday is one element, Monday is another element and so forth.
+So what I have just done over here is that,
+I’ve created seven different files.
+I did not create one long filename...
+which incorporates  space characters.
+So if you have a look inside to my playarea directory with an ls command,
+you could see that the files are there
+but to see a little bit neater and for you to see that these are separate files,
+I'm going to use ls –l.
+So now we can now see that they are indeed separate files that  have been created.
+Now if you want to do create a file that incorporates spaces,
+what I need to do is take away that special meaning of that space character.
+Observe the following.
+I'm going to use the touch command again...
+and this time I'm going to create a single file...
+called Sunday Monday Tuesday Wednesday Thursday Friday and Saturday
+So in front of every single space character,
+I'm going to put a backslash (\) and this will remove...
+the special meaning of the space character.
+And you can see that I have a single file named after the days of the week.
+Another workaround,
+another way to work around that,
+is to encapsulate them in either single (‘) or double (“) quotation marks.
+Let’s observe.
+Because putting a backslash (\) in front of every single space character ...
+could take some time,
+what I could do is make use of encapsulation as follows.
+So to create a single filename...
+January February March and April,
+I could do encapsulation and as you can see over here, a single file was created.
+One more strategy is to make use of brace expansion ( { } ).
+So what I'm doing over here is that I'm creating a number of files...
+that begin with file
+and then I'm saying that the next character...
+starts at a
+and it could end through to g.
+I'm choosing one character...
+from the range that's specified over there.
+So I'm not creating one long filename over there,
+I'm creating a file called file...
+and then the next character would either be a, b, c, d, e, f or g.
+So finally that brings us to command substitution,
+which make use of the $ and then two round brackets ( $( ) ).
+Observe the following.
+I'm going to run the command date +%F
+And what it does is that it gives me today's date.
+So if I wanted you to create a directory named after today's date,
+I could say mkdir
+and instead of specifying that text literally,
+I could make use of the output of the date plus +%F command
+So what you will see right now is that...
+there is a new brand directory called...
+2017-03-17.
