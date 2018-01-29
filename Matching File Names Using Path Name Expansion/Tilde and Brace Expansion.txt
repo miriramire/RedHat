@@ -1,0 +1,22 @@
+Tilde Expansion
+The tilde character (~), when followed by a slash delimiter, matches the current user's home directory. When followed by a string of characters up to a slash, it will be interpreted as a username, if one matches. If no username matches, then an actual tilde followed by the string of characters will be returned.
+
+[student@desktopX glob]$ ls ~/glob
+able  alfa  baker  bravo  cast  charlie  delta  dog  easy  echo
+[student@desktopX glob]$ echo ~/glob
+/home/student/glob
+[student@desktopX glob]$ 
+Brace Expansion
+Brace expansion is used to generate discretionary strings of characters. Braces contain a comma-separated list of strings, or a sequence expression. The result includes the text preceding or following the brace definition. Brace expansions may be nested, one inside another.
+
+[student@desktopX glob]$ echo {Sunday,Monday,Tuesday,Wednesday}.log
+Sunday.log Monday.log Tuesday.log Wednesday.log
+[student@desktopX glob]$ echo file{1..3}.txt
+file1.txt file2.txt file3.txt
+[student@desktopX glob]$ echo file{a..c}.txt
+filea.txt fileb.txt filec.txt
+[student@desktopX glob]$ echo file{a,b}{1,2}.txt
+filea1.txt filea2.txt fileb1.txt fileb2.txt
+[student@desktopX glob]$ echo file{a{1,2},b,c}.txt
+filea1.txt filea2.txt fileb.txt filec.txt
+[student@desktopX glob]$ 
