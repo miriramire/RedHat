@@ -1,0 +1,7 @@
+Command substitution allows the output of a command to replace the command itself. Command substitution occurs when a command is enclosed with a beginning dollar sign and parenthesis, $(command), or with backticks, `command`. The form with backticks is older, and has two disadvantages: 1) it can be easy to visually confuse backticks with single quote marks, and 2) backticks cannot be nested inside backticks. The $(command) form can nest multiple command expansions inside each other.
+
+[student@desktopX glob]$ echo Today is `date +%A`.
+Today is Wednesday.
+[student@desktopX glob]$ echo The time is $(date +%M) minutes past $(date +%l%p).
+The time is 26 minutes past 11AM.
+[student@desktopX glob]$ 
