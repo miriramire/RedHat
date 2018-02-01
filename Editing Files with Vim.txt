@@ -1,0 +1,71 @@
+A key design principle of Linux is that information is stored in text-based files. Text files include both flat files with rows of similar information, such as configuration files in /etc, and Extensible Markup Language (XML) files, which define data structure through text tags, seen in application configuration files throughout both /etc and /usr. The advantage of text files is that they can be moved or shared between systems without requiring conversion, and can be viewed and edited using any simple text editor.
+
+Vim is an improved version of the vi editor distributed with Linux and UNIX systems. Vim is highly configurable and efficient for practiced users, including such features as split screen editing, color formatting, and highlighting for editing text.
+
+When first opened, Vim starts in command mode, used for navigation, cut and paste, and other text manipulation. Enter each of the other modes with single character keystrokes to access specific editing functionality:
+
+An i keystroke enters insert mode, where all text typed becomes file content. Pressing Esc returns to command mode.
+
+A v keystroke enters visual mode, where multiple characters may be selected for text manipulation. Use V for multi-line and Ctrl+v for block selection. The same keystroke used to enter visual mode (v, V or Ctrl+v) is used to exit.
+
+The : keystroke begins extended command mode for tasks like writing the file to save it, and quitting the Vim editor.
+
+The Minimum, Basic Vim Workflow
+Vim has efficient, coordinated keystrokes for advanced editing tasks. Although considered useful with practice, Vim's capabilities can overwhelm new users. The following workflow presents the minimum keystrokes every Vim user must learn to accomplish any editing task.
+
+Open a file with vim filename.
+
+Repeat this text entry cycle, as many times as the task requires:
+
+Use arrow keys to position the cursor.
+
+Press i to enter insert mode.
+
+Enter text.
+
+Press Esc to return to command mode.
+
+If necessary, press u to undo mistaken edits on the current line.
+
+Repeat this text deletion cycle, as many times as the task requires:
+
+Use arrow keys to position the cursor.
+
+Press x to delete a selection of text.
+
+If necessary, use u to undo mistaken edits on the current line.
+
+To save or exit, choose one of the following to write or discard file edits:
+
+Enter :w to write (save) the file and remain in command mode for more editing.
+
+Enter :wq to write the file and quit Vim.
+
+Enter :q! to quit Vim, but discard all file changes since the last write.
+
+Rearranging Existing Text
+In Vim, copy and paste is known as yank and put, using command characters y and p. Begin by positioning the cursor on the first character to be selected, then enter visual mode. Use arrow keys to expand the visual selection. When ready, press y to yank the selection into memory. Position the cursor at the new location, then press p to put the selection at the cursor. This following workflow illustrates "yank and put" using visual mode.
+
+Open a file with vim filename.
+
+Repeat this text selection cycle, as many times as the task requires:
+
+Use arrow keys to position the cursor to the first character.
+
+Press v to enter visual mode.
+
+Use arrow keys to position the cursor to the last character.
+
+Press y to yank (copy) the selection.
+
+Use arrow keys to position the cursor at the insert location.
+
+Press p to put (paste) the selection.
+
+To save or exit, choose one of the following to write or discard file edits:
+
+Enter :w to write (save) the file and remain in command mode for more editing.
+
+Enter :wq to write the file and quit Vim.
+
+Enter :q! to quit Vim, but discard all file changes since the last write.
