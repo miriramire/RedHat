@@ -1,0 +1,49 @@
+vim is a really powerful editor and it has three modes of operation.
+
+$sudo yum install vim
+$vim
+
+vim is operating in command mode right now.
+So to go to insert mode from command mode, use the i button on your keyboard.
+I need to change modes because when I'm inside insert mode right now, any keystrokes that I initiate on my keyboard will be directed into this file as content.
+I’m going to hit Esc
+use a colon (:) and now I'm going to use a special vim function called write.
+
+$:write
+$:w /var/tmp/hello_world
+
+Now let’s quit vim.
+To quit vim, I would make use of colon, to go to ex-mode,
+
+$:q
+
+Now let's use the command cat against /var/tmp/hello_world
+
+$ cat /var/tmp/hello_world
+Hello World
+
+So let's go and make a couple of changes to this file right now.
+
+$ vim /var/tmp/hello_world
+
+Now let's move on to command mode, and have look at some vim commands.
+ yy to copy a line.
+ To paste a line, you could use p.
+ If you wanted to paste that line five times, you could use 5p.
+ So if you wanted to delete that word, you could say dw.
+ cw deleted the word that my cursor was over
+ So if I wanted to delete the character "e" I could just say x
+ 3x would delete the next three characters.
+ And to delete the text from your current cursor position to the end of the line, I could make use of d$.
+ If you make a mistake inside vim, you can undo your transactions by saying u.
+ If you want to delete an entire line you could use the instruction dd
+ So if you want to delete the next 100 lines, I could say 100dd.
+ To save a file which already has a name, I’m going to use :w and then we’ll save. And now we’re going to quit at the same time.
+ 
+$:wq
+
+Another way in which you could use the save and quit function is to use an uppercase ZZ once you are inside the command mode.
+
+If you have made a change to a file and you want to avoid those changes, I could say Esc+:q
+
+$:q!
