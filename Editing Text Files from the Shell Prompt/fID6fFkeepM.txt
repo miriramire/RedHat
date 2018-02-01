@@ -1,0 +1,146 @@
+It’s now the time to have a look at editing files with vim.
+vim is a really powerful editor and it has three modes of operation.
+Those modes are command mode, which is the default mode.
+We also have insert mode,
+and that's the mode that we use to manipulate text.
+And then we have ex-mode,
+and inside ex-mode vim is capable of receiving special instructions.
+Let's have a look at this in more detail.
+I'm going to type in vim on its own
+and you can see we have a bit of an introductory screen over here.
+And I'm going to attempt to type in the text "Hello world".
+So I’m going to start by typing in “He”,
+oh look at that, nothing happened.
+And the reason why nothing happened is because of the default mode that I’m in.
+Now vim is operating in command mode right now.
+Look at the bottom left corner,
+there's nothing there,
+and that is my visual indicator that is in the default mode of vim
+and for me to be in text manipulation mode,
+I need to be in the special mode called insert mode.
+I’m not inside insert mode right now.
+So to go to insert mode from command mode,
+use the i button on your keyboard.
+I could make use of the Insert button,
+but not all keyboards have an Insert button.
+So again,
+I would like to draw your attention to the bottom left corner.
+So I have just hit i
+and now I'm going to type in the text “Hello world”.
+In order for me to save that text,
+I need to change modes because when I'm inside insert mode right now,
+any keystrokes that I initiate on my keyboard...
+will be directed into this file as content.
+So I'm going to change modes right now and I’m going to return to command mode.
+Look again at that bottom left corner.
+I’m going to hit Esc...
+and there's nothing there, and that is your indicator that...
+you’re inside command mode.
+Now let's get to ex-mode.
+From command mode...
+use a colon (:)
+and now I'm going to use a special vim function...
+called write.
+Now you could abbreviate write to just w,
+and of course I need to specify a filename to save this content to.
+So I'm saving it to /var/tmp/
+hello_world
+and you can see that transaction was successful.
+I've just saved my file...
+to /var/tmp/hello_world
+Now let’s quit vim.
+To quit vim, I would make use of colon, to go to ex-mode,
+and I then I could type out the command quit.
+However, I'm going to keep it simple and I'm just going to use : q.
+Now let's use the command cat against /var/tmp/hello_world
+and then you can see that I do indeed have my text “Hello world”.
+So let's go and make a couple of changes to this file right now.
+So I'm just going to say vim...
+/var/tmp/hello_world and my file opens up.
+Now let's move on to command mode, and have look at some vim commands.
+I'm going to use yy to copy a line.
+To paste a line, you could use p.
+If you wanted to paste that line five times, you could use 5p.
+Of course, if I was inside insert mode and I typed out 5p,
+it would take the keystroke combination 5p...
+and actually inject that into my document as content.
+Now observe my cursor position.
+It's over the word Hello.
+So if you wanted to delete that word, you could say dw.
+And again, I want you to have a look at the bottom left corner.
+I'm now going to change that word world,
+and I’m going to do that by saying cw.
+Now cw is a vim command.
+And because l was in command mode what it did is that
+it deleted the word that my cursor was over...
+and it now places me inside insert mode.
+And from this particular position I can now manipulate text.
+Of course to exit out of the insert mode and to go back into command mode,
+I can use the Esc key.
+Now observe where my cursor position is right now,
+it's over the "e" in hello.
+So if I wanted to delete the character "e" I could just say x
+and that will delete the individual character.
+Of course saying 3x
+would delete the next three characters.
+And to delete the text from your current cursor position to the end of the line,
+I could make use of d$.
+If you make a mistake inside vim, you can undo your transactions by saying u.
+And let’s go and hit u again...
+and again and again...
+and once more, and I’m at my original state right now.
+If you want to delete an entire line...
+you could use the instruction dd
+and that will delete the line that your current cursor is on.
+So if you want to delete the next 100 lines,
+of course I don't have 100 lines,
+I could say 100dd.
+And there you go, and it only deleted 4 lines.
+Now let's go and save this right now.
+Previously I showed you how to save the file should it not have a name.
+If you wanted to save a file...
+that already has a name,
+you could follow the keystroke combination.
+Now observe the bottom left corner,
+I’m going to use :
+w and then we’ll save.
+And now we’re going to quit at the same time,
+quit and there you go.
+Let’s go back into our file right now.
+Another way in which you could use the save...
+and quit function is to use an uppercase ZZ once you are inside the command mode.
+Observe, I’m going to delete the line “Hello world”.
+I’ve got one line that says "Hello world" right now.
+So let’s use an uppercase ZZ,
+and you can see that it did save and a quit for me,
+really convenient.
+Let’s return to our file for the final time.
+If you have made a change to a file
+and you want to avoid those changes,
+it's really important that you know how.
+What I’m about to do right now is open up a new line.
+So what the o instruction does is that it takes me to the next line
+and it still puts me inside insert mode.
+And I’m going to inject the text “Vim rocks!”
+Now let’s say that I did not want to save that file right now,
+I wanted you to quit.
+I could say Esc+:q
+and it gives me a bit of a warning at the bottom left corner.
+It says "No write since the last change (add ! to override)".
+So what it's telling me over here is that you made a change to a file,
+you’re trying to quit, you haven't saved your changes yet.
+Are you sure you want to do that?
+And if you are sure,
+add an exclamation mark or a bang at the end of your instruction.
+So let’s go and try that right now.
+So Esc...
+to make sure I’m inside command mode,
+colon to go to an x-mode, q and then !
+And there you go.
+vim is a really powerful editor,
+it has many advanced functions...
+and I would really like to encourage you to...
+head over to your nearest Linux computer
+and run the command vimtutor...
+and it goes on through a detailed tutorial that will take you approximately...
+a half hour to work through.
