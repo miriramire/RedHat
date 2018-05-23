@@ -1,0 +1,18 @@
+$ - Regular user
+# - Root User
+
+*Log in as Root
+$su -
+*Log out as root
+Ctrl + d
+$logout
+
+If you want to recall the previous command, you could use a double bang (!!) like that.
+ricardo@DESKTOP-JT8C2C8:~$ useradd barney
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+ricardo@DESKTOP-JT8C2C8:~$ sudo !!
+So !! represents the useradd barney command.
+
+Sudo is all about delegating other commands as different users.
+Should you want to log in as the root user via sudo, you could use the command sudo -i
