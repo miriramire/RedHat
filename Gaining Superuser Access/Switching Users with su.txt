@@ -1,0 +1,6 @@
+The su command allows a user to switch to a different user account. If no username is specified as an argument to the command, the root account is used. When run su is run by a regular user, a prompt will request the password of the account you are switching to. When run by root, there is no need to enter the account password.
+
+su [-] <username>
+
+Note
+The su command is most frequently used to get a command line interface (shell prompt) which is running as another user, typically root. However, with the -c option, it can be used like the Windows utility runas to run an arbitrary program as another user. See info su for details.
