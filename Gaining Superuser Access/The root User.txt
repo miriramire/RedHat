@@ -1,0 +1,14 @@
+Most operating systems have some sort of superuser, a user that has all power over the system. This user in Red Hat Enterprise Linux is the root user. This user has the power to override normal privileges on the file system, and is used to manage and administer the system. In order to perform tasks such as installing or removing software and to manage system files and directories, a user must escalate privileges to the root user.
+
+Most devices can only be controlled by root, but there are a few exceptions. For instance, removable devices, such as USB devices, are allowed to be controlled by a normal user. Thus, a non-root user is allowed to add and remove files and otherwise manage a removable device, but only root is allowed to manage "fixed" hard drives by default.
+
+This unlimited privilege, however, comes with responsibility. root has unlimited power to damage the system: remove files and directories, remove user accounts, add backdoors, etc. If the root account is compromised, someone else would have administrative control of the system. Throughout this course, administrators will be encouraged to log in as a normal user and escalate privileges to root only when needed.
+
+The root account on Linux is roughly equivalent to the local Administrator account on Windows. In Linux, most system administrators log into an unprivileged user account and use various tools to temporarily gain root privileges.
+
+Warning
+One common practice on Microsoft Windows in the past was for the local Administrator user to log in directly to perform system administrator duties. However, on Linux, it is recommended that system administrators should not log in directly as root. Instead, system administrators should log in as a non-root user, and use other mechanisms (su, sudo, or PolicyKit, for example) to temporarily gain superuser privileges.
+
+By logging in as the administrative user, the entire desktop environment unnecessarily runs with administrative privileges. In that situation, any security vulnerability which would normally only compromise the user account has the potential to compromise the entire system.
+
+In recent versions of Microsoft Windows, Administrator is disabled by default, and features such as User Account Control (UAC) are used to limit administrative privileges for users until actually needed. In Linux, the PolicyKit system is the nearest equivalent to UAC.
